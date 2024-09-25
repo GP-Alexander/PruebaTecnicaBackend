@@ -5,8 +5,8 @@ import { EmpresaSchema } from "../schemas/empresa.schema.js";
 const router = Router();
 router.get('/empresas', getempresas);
 router.get('/empresa/:id', getEmpresaById);
-router.post('/empresas', validateSchema(EmpresaSchema), createEmpresa);
-router.put('/empresas/:id', updateEmpresa);
-router.delete('/empresas/:id', deleteEmpresa);
+router.post('/empresa', validateSchema(EmpresaSchema), createEmpresa);
+router.put('/empresa/:id',validateSchema(EmpresaSchema), updateEmpresa);
+router.delete('/empresa/:id', deleteEmpresa);
 
 export default router;
