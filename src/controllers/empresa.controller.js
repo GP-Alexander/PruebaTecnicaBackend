@@ -4,13 +4,24 @@ import EmpresaModel from '../models/empresa.model.js';
 export const getempresas = async (req, res, next) => {
     try {
         const empresas = await EmpresaModel.findAll({
-            attributes: ['nombre_comercial', 'razon_social', 'telefono']  // Seleccionar solo campos necesarios
+            attributes: [`id`, `nombre_comercial`, `razon_social`, `telefono`, `correo_electronico`, `nit`, `estado`, `direccion`]  // Seleccionar solo campos necesarios
         });
         res.json(empresas);
     } catch (error) {
         next(error);
     }
 };
+
+export const getEmpresaById = async (req, res, next) => {
+    try {
+        const empresa = await EmpresaModel.findByPk(req.params.id);
+        if (!empresa) return res.status(404).json({ message: "Empresa not found" });
+
+        return res.json(empresa);
+    } catch (error) {
+        next(error);
+    }
+}
 
 // Crear una nueva empresa
 export const createEmpresa = async (req, res, next) => {

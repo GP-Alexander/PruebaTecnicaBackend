@@ -11,7 +11,7 @@ export const EmpresaSchema = z.object({
     
     telefono: z.string()
         .trim()
-        .min(10, { message: "El número de teléfono debe tener al menos 10 caracteres" }),
+        .min(8, { message: "El número de teléfono debe tener al menos 10 caracteres" }),
     
     correo_electronico: z.string()
         .trim()

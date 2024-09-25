@@ -12,7 +12,7 @@ const tbl_empresa = sequelize.define(
       allowNull: false,
       validate: { isEmail: true },
     },
-    nit: { type: DataTypes.STRING, allowNull: false, unique: true },
+    nit: { type: DataTypes.STRING, allowNull: false, unique: false },
     estado: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true },
     direccion: { type: DataTypes.STRING, allowNull: false },
   },
